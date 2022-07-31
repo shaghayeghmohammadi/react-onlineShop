@@ -1,13 +1,16 @@
 import Navigation from "../components/Navigation";
+// import CartProvider from "../Providers/CartProvider";
 
 const Layout = ({ children }) => {
   return (
-    <div>
-      <header>
-        <Navigation />
-      </header>
-      {children}
-    </div>
+    // <CartProvider>
+      <div>
+        <header>
+          <Navigation />
+        </header>
+        {children}
+      </div>
+    // </CartProvider>
   );
 };
 

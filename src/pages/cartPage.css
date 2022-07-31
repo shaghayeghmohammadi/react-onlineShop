@@ -1,3 +1,13 @@
+.cartCenter {
+  display: flex;
+  width: 90vw;
+  max-width: 1170px;
+  /* flex-wrap: wrap; */
+  height: 100%;
+  justify-content: center;
+  margin-bottom: 80px;
+  margin-top: 160px;
+}
 .cartItemList {
   background-color: #fff;
   display: flex;
@@ -38,34 +48,34 @@
   margin-right: 2rem;
   padding: 20px;
 }
-.cartCenter {
-  display: flex;
-  width: 90vw;
-  max-width: 1170px;
-  height: 100%;
-  justify-content: center;
-  margin-bottom: 80px;
-  margin-top: 160px;
-}
+
 .itemDetail {
   font-size: 1.3rem;
 }
+.btnList {
+  box-shadow: 3px 3px 4px #e7e7e7e5, -3px -3px 4px #f6f6f677;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .btnList button {
   font-family: kalameh-bold;
-  font-size: 1.2rem;
-  margin-right: 10px;
-  padding: 5px 13px;
-  cursor: pointer;
+  color: #002c53;
+  padding: 2px 8px;
+  background-color: transparent;
   border: none;
-  border-radius: 5px;
 }
-.btnList button:nth-child(1) {
-  background-color: red;
-  color: white;
+
+.btnList button:nth-child(2) {
+  font-size: 1.5rem;
+  margin-top: 4px;
 }
-.btnList button:nth-child(3) {
-  background-color: rgb(39, 248, 133);
-  color: white;
+
+.btnList button:nth-child(1) ion-icon,
+.btnList button:nth-child(3) ion-icon {
+  font-size: 1.4rem;
+  cursor: pointer;
 }
 .emptyCart {
   display: flex;
@@ -86,6 +96,8 @@
   font-family: kalameh-bold;
   font-size: 1.2rem;
 }
+
+/* media queries  */
 @media only screen and (max-width: 600px) {
   .cartCenter {
     width: 96vw;
@@ -109,7 +121,7 @@
   }
   .btnList button {
     font-size: 0.8rem;
-    padding: 2px 5px;
+    padding: 1px 5px;
     margin-bottom: 6px;
     border-radius: 20%;
   }
@@ -118,9 +130,12 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
+    margin-bottom: 10px;
   }
   .cartSummary {
-    width: 30%;
+    width: 100%;
+    margin-top: 30px;
+    margin-right: 0;
   }
   .cartSummary h2 {
     font-size: 1rem;
@@ -134,12 +149,23 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* margin-right: 10px; */
   }
   .cartItem {
     margin-bottom: 10px;
   }
   .detailContainer .itemDetail:nth-child(1) {
     margin-left: 0px;
+  }
+  .btnList button:nth-child(1) ion-icon,
+  .btnList button:nth-child(3) ion-icon {
+    font-size: 1.1rem;
+  }
+  .btnList button:nth-child(2) {
+    font-size: 1.2rem;
+    margin-top: 4px;
+  }
+  .cartCenter {
+  width: 93vw;
+  flex-wrap: wrap;
   }
 }

@@ -1,11 +1,16 @@
 import { NavLink } from "react-router-dom";
+import { useCart } from "../Providers/CartProvider";
 import "./navigation.css";
+
 const Navigation = () => {
+  const { cart } = useCart();
+  console.log(cart.length);
+
   return (
     <header className="mainNavigation">
       <nav>
         <ul>
-          <li>
+          <li className="mainPageLi">
             <NavLink
               to="/"
               className={(Navbutton) =>
@@ -15,14 +20,15 @@ const Navigation = () => {
               صفحه اصلی
             </NavLink>
           </li>
-          <li>
+          <li className="cartPageNav">
             <NavLink
               to="/cart"
               className={(Navbutton) =>
                 Navbutton.isActive ? "activeLink" : ""
               }
             >
-              سبد خرید
+              <span className="cartNumber">{cart.length}</span>
+              <ion-icon className="cartIcon" name="cart-outline"></ion-icon>
             </NavLink>
           </li>
         </ul>

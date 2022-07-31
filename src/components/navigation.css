@@ -7,29 +7,76 @@
   position: fixed;
 }
 .mainNavigation nav {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
 .mainNavigation ul {
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
 }
 .mainNavigation li {
-  margin: 0 2rem;
+  margin: 0 7rem;
 }
 .mainNavigation a {
   display: block;
   padding: 0.5rem 1rem;
   color: #08105f;
-  /* border-radius: 5px; */
+  border-radius: 50px;
 }
 .mainNavigation a:hover,
 .activeLink {
-  border-bottom: 2px solid #002c53;
-  /* background-color: rgb(255, 190, 190); */
+  background-color: #002c530e;
   color: #002c53;
+}
+
+ion-icon {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+.mainNavigation span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 112px;
+  top: 11px;
+  /* left: 90; */
+  width: 20px;
+  height: 20px;
+  color: white;
+  font-size: 0.9rem;
+  border-radius: 100%;
+  background: linear-gradient(to right, #004e92, #000428);
+}
+@media only screen and (max-width: 600px) {
+  .mainNavigation li {
+    margin: 0 0;
+  }
+  .mainNavigation a {
+    display: block;
+    padding: 0.2rem 0.5rem;
+  }
+  ion-icon {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  .mainNavigation span {
+    left: 28px;
+    top: 9px;
+    border: 2px solid #fff;
+    font-size: 0.8rem;
+  }
+  .mainNavigation .cartPageNav{
+    margin-left: 10px;
+  }
+  .mainNavigation .mainPageLi{
+    margin-right: 10px;
+  }
+  
 }
