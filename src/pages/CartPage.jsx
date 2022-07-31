@@ -1,6 +1,7 @@
 import { useCart, useCartActions } from "../Providers/CartProvider";
 import Layout from "../Layout/Layout";
 import "./cartPage.css";
+import { Link } from "react-router-dom";
 const CartPage = () => {
   const dispatch = useCartActions();
   const { cart, total } = useCart();
@@ -57,10 +58,7 @@ const CartPage = () => {
               );
             })}
           </section>
-          <section className="cartSummary">
-            <h2>جزئیات سفارش</h2>
-            <p>جمع کل سبد خرید: {total} تومان</p>
-          </section>
+          <CartSummary total={total} cart={cart} />
         </section>
       </main>
     </Layout>
@@ -68,3 +66,32 @@ const CartPage = () => {
 };
 
 export default CartPage;
+
+const CartSummary = ({ total, cart }) => {
+  const originalTotalPrice = cart.length
+    ? cart.reduce((acc, curr) => acc + curr.quantity * curr.price, 0)
+    : 0;
+
+  return (
+    <section className="cartSummary">
+      <h2>جزئیات سفارش</h2>
+      <div className="summeryItem">
+        <p>قیمت کالا‌ها:</p>
+        <p>{originalTotalPrice} تومان</p>
+      </div>
+      <div className="summeryItem">
+        <p>تخفیف کالاها:</p>
+        <p>{originalTotalPrice - total} تومان</p>
+      </div>
+      <div className="summeryItem total">
+        <p>جمع کل سبد خرید:</p>
+        <p>{total} تومان</p>
+      </div>
+      <Link to="/checkout">
+        <button className="btn primary" style={{ marginTop: "30px" }}>
+          ادامه سفارش
+        </button>
+      </Link>
+    </section>
+  );
+};

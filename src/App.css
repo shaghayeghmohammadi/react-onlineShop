@@ -82,6 +82,7 @@ body {
   background-color: #000428;
   color: white;
 }
+
 @media only screen and (max-width: 600px) {
   .productList {
     margin-bottom: 100px;
