@@ -1,13 +1,18 @@
 import * as data from "../data/data";
-import { useCartActions } from "../Providers/CartProvider";
+import { useCart, useCartActions } from "../Providers/CartProvider";
 import Layout from "../Layout/Layout";
+import { checkInCart } from "../utils/checkInCart";
+import { toast } from "react-toastify";
 
 const HomePage = () => {
+  const { cart } = useCart();
   const dispatch = useCartActions();
 
   const addProductHandler = (product) => {
+    toast.success(`${product.name} به سبد خرید اضافه شد !`);
     dispatch({ type: "ADD_TO_CART", payload: product });
   };
+
   return (
     <Layout>
       <main className="container">
@@ -26,7 +31,9 @@ const HomePage = () => {
                   onClick={() => addProductHandler(product)}
                   className="btn primary"
                 >
-                  افزودن به سبد خرید
+                  {checkInCart(cart, product)
+                    ? "ادامه سفارش"
+                    : "افزودن به سبد خرید"}
                 </button>
               </section>
             );
