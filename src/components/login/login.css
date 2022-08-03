@@ -1,0 +1,14 @@
+.login {
+   height: calc(100vh - 4.5rem);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.link {
+    color: #004e92;
+}
+.push-paragraph {
+    margin-right: 10px;
+    font-size: 1.1rem;
+    font-family: kalameh-bold;
+}
