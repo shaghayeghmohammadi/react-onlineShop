@@ -68,19 +68,19 @@
 
 .btnList button:nth-child(2) {
   font-size: 1.5rem;
-  margin-top: 4px;
+  margin-top: -4px;
 }
 
-.btnList button:nth-child(1) ion-icon,
-.btnList button:nth-child(3) ion-icon {
-  font-size: 1.4rem;
+.btnList button:nth-child(1),
+.btnList button:nth-child(3) {
+  font-size: 1.1rem;
   cursor: pointer;
 }
 .emptyCart {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 4.5rem);
 }
 /* .cartSummary {
   display: flex;
@@ -108,7 +108,7 @@
 }
 
 /* media queries  */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .cartCenter {
     width: 96vw;
   }
@@ -169,13 +169,13 @@
   .detailContainer .itemDetail:nth-child(1) {
     margin-left: 0px;
   }
-  .btnList button:nth-child(1) ion-icon,
-  .btnList button:nth-child(3) ion-icon {
-    font-size: 1.1rem;
+  .btnList button:nth-child(1),
+  .btnList button:nth-child(3) {
+    font-size: 0.92rem;
   }
   .btnList button:nth-child(2) {
-    font-size: 1.2rem;
-    margin-top: 4px;
+    font-size: 1.4rem;
+    /* margin-top: 4px; */
   }
   .cartCenter {
     width: 93vw;

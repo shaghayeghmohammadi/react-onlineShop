@@ -1,24 +1,7 @@
 .Form-wrapper {
-    display: flex;
-    padding-top: 30px;
-    justify-content: center;
+  display: flex;
+  padding-top: 30px;
+  justify-content: center;
+}
 
 
-  }
-  .Form-wrapper::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    /* background: url(./images/bg.webp); */
-    background-position: center center;
-    background-size: contain;
-    -webkit-filter: blur(50px);
-    -moz-filter: blur(50px);
-    -o-filter: blur(50px);
-    -ms-filter: blur(50px);
-    filter: blur(50px);
-  }

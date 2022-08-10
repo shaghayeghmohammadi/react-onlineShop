@@ -27,7 +27,7 @@ const LoginForm = () => {
   });
 
   return (
-    <div className="formContainer login">
+    <div className=" login">
       <form onSubmit={formik.handleSubmit}>
         <Inputs formik={formik} name="email" label="ایمیل" />
         <Inputs

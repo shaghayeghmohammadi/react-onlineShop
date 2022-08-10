@@ -1,6 +1,7 @@
 import { useCart, useCartActions } from "../Providers/CartProvider";
 import Layout from "../Layout/Layout";
 import "./cartPage.css";
+import { FaRegTrashAlt, FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 const CartPage = () => {
   const dispatch = useCartActions();
@@ -44,14 +45,11 @@ const CartPage = () => {
 
                   <div className="btnList">
                     <button onClick={() => removeHandler(item)}>
-                      <ion-icon name="trash-outline"></ion-icon>
+                      <FaRegTrashAlt />
                     </button>
                     <button>{item.quantity}</button>
                     <button onClick={() => incHandler(item)}>
-                      <ion-icon
-                        className="add-icon"
-                        name="add-outline"
-                      ></ion-icon>
+                      <FaPlus />
                     </button>
                   </div>
                 </div>

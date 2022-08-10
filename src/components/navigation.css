@@ -3,50 +3,83 @@
   height: 4.5rem;
   background-color: #fff;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.055);
-  font-size: 1.3rem;
+  font-family: kalameh-bold;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
   position: fixed;
 }
+
 .mainNavigation nav {
   width: 100%;
+  max-width: calc(1170px - 90px);
+  margin-left: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  /* background-color: red; */
+}
+.mainNavigation ul {
+  /* width: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
-.mainNavigation ul {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-}
-.mainNavigation li {
-  margin: 0 7rem;
-}
+
 .mainNavigation a {
   display: block;
   padding: 0.5rem 1rem;
   color: #08105f;
   border-radius: 50px;
 }
-.mainNavigation a:hover,
-.activeLink {
+.mainNavigation a:hover {
   background-color: #002c530e;
   color: #002c53;
 }
-
-ion-icon {
-  font-size: 1.5rem;
-  margin-top: 10px;
+.mainNavigation .activeLink {
+  color: #0f009b;
 }
+.logo {
+  font-family: kalameh-black;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo a:hover {
+  background-color: #fff;
+}
+
+.loginPageNav {
+  margin-right: 20px;
+}
+.loginPageNav p {
+  margin-right: 5px;
+}
+.loginPageNav a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cartPageNav {
+  margin-right: 20px;
+}
+
+.basketIcon {
+  margin-top: 8px;
+  font-size: 1.6rem;
+}
+
 .mainNavigation span {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  left: 112px;
+  left: 202px;
   top: 11px;
-  /* left: 90; */
   width: 20px;
   height: 20px;
   color: white;
@@ -54,29 +87,123 @@ ion-icon {
   border-radius: 100%;
   background: linear-gradient(to right, #004e92, #000428);
 }
-@media only screen and (max-width: 600px) {
+
+/* for mobile nav  */
+.nav-btn {
+  padding: 5px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #002c53;
+  visibility: hidden;
+  opacity: 0;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+.hiddenLi {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* media querie for mobile nav  */
+  .hiddenLi {
+    display: block;
+  }
+  .mainPageLi,
+  .checkoutPageLi,
+  .signupPageLi {
+    font-family: kalameh-black;
+  }
+  header .nav-btn {
+    visibility: visible;
+    opacity: 1;
+  }
+  .insideMobileNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: all 0.12s ease-in-out;
+    background-color: #ffffff;
+    transform: translateX(100vw);
+    z-index: 99;
+  }
+  .insideMobileNav .goToCart {
+    width: 90%;
+    border: none;
+    outline: none;
+    padding: 10px 5px;
+    background: linear-gradient(to right, #004e92, #000428);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.25s;
+    font-family: kalameh-black;
+    font-size: 1.4rem;
+    transition: all 0.45 ease-in-out;
+    position: absolute;
+    bottom: 2rem;
+  }
+  .goToCart a {
+    color: white;
+  }
+  .goToCart a:hover {
+    background-color: transparent;
+    color: white;
+    transform: scale(1.1);
+  }
+
+  header .active {
+    transform: none;
+  }
+  .close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+  nav a {
+    font-size: 1.5rem;
+  }
+
+  /* media query for the rest of menu items in mobile */
   .mainNavigation li {
     margin: 0 0;
   }
+  .mainNavigation nav {
+    margin-left: 0;
+    justify-content: flex-end;
+  }
   .mainNavigation a {
-    display: block;
     padding: 0.2rem 0.5rem;
   }
-  ion-icon {
+  .logo {
+    margin-right: 10px;
+  }
+  .outsideMobileNav {
+    margin-left: 10px;
+  }
+  .userIcon {
+    font-size: 1.4rem;
+  }
+  .loginPageNav p {
     font-size: 1.2rem;
-    margin-top: 10px;
   }
   .mainNavigation span {
-    left: 28px;
+    left: 90px;
     top: 9px;
     border: 2px solid #fff;
     font-size: 0.8rem;
   }
-  .mainNavigation .cartPageNav{
+  .mainNavigation .cartPageNav {
     margin-left: 10px;
   }
-  .mainNavigation .mainPageLi{
+  .mainNavigation .mainPageLi {
     margin-right: 10px;
   }
-  
 }

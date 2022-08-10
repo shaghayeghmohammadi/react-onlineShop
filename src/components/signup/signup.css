@@ -1,49 +1,19 @@
 .formContainer {
-  margin-top: 4.5rem;
-  width: 435px;
-}
-label {
+  height: 100vh;
   display: flex;
-  margin-bottom: 8px;
-  font-size: 1.2rem;
-}
-.checkbox {
-  display: inline-flex;
-  accent-color: #0052cd;
-}
-.checkbox input {
-  margin-left: 25px;
-  cursor: pointer;
-}
-.checkbox label {
-  margin-left: 2px;
-  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  margin: 90px 0;
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 10px;
+  padding: 120px 20px;
+  /* padding-top: -30px; */
 }
 
-.options {
-  display: inline-flex;
-  margin-bottom: 35px;
-  margin-top: 5px;
-  justify-content: right;
-  max-width: 400px;
-  flex-wrap: wrap;
-  font-family: kalameh-bold;
-  accent-color: #0052cd;
-  border-radius: 5px;
-  box-shadow: 3px 5px 9px #0052cd1e;
-  padding: 25px 10px;
-  background: #e9f0f8;
-}
-.skills {
-  padding-top: 22px;
-}
-.options label {
-  margin-right: 10px;
-  cursor: pointer;
-}
-.options input {
-  margin-left: 25px;
-  cursor: pointer;
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
 }
 
 input[type="text"],
@@ -60,11 +30,6 @@ input[type="tel"] {
   color: rgb(30, 0, 163);
   font-size: 1.1rem;
   font-family: kalameh-bold;
-}
-select {
-  margin: 43px 0 2px 0;
-  padding: 5px 15px;
-  width: 422px;
 }
 input:focus {
   outline: none;
@@ -119,7 +84,6 @@ input:-webkit-autofill:active {
   background-color: rgb(223, 214, 255);
 }
 .error {
-  /* width: 435px; */
   margin-top: 5px;
   font-family: kalameh-bold;
   font-size: 1.1rem;
@@ -130,10 +94,6 @@ input:-webkit-autofill:active {
   color: rgb(0, 179, 0);
   margin-top: 30px;
   font-size: 1.3rem;
-}
-
-.options-wrapper {
-  display: inline-flex;
 }
 
 .link {
@@ -147,16 +107,19 @@ input:-webkit-autofill:active {
 
 @media only screen and (max-width: 600px) {
   .formContainer {
-    width: 225px;
+    /* padding: 20px; */
+    border: none;
+    margin-bottom: 30px;
+    width: 285px;
   }
   input[type="text"],
   input[type="email"],
   input[type="password"],
   input[type="tel"] {
-    width: 210px;
+    width: 250px;
   }
   .button {
-    width: 220px;
+    width: 250px;
     height: 35px;
   }
   .error {
