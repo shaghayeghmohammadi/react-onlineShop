@@ -1,9 +1,10 @@
 import Inputs from "../../common/Input";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { useState } from "react";
 import "./signup.css";
 import { Link } from "react-router-dom";
+import { signupUser } from "../../services/signup";
+import { useState } from "react";
 
 const initialValues = {
   name: "",
@@ -11,10 +12,6 @@ const initialValues = {
   password: "",
   number: "",
   passwordConfirmation: "",
-};
-
-const onSubmit = (values) => {
-  console.log(values);
 };
 
 const validationSchema = yup.object({
@@ -41,7 +38,26 @@ const validationSchema = yup.object({
 });
 
 const SignupForm = () => {
-  const [signUp, setsignUp] = useState(false);
+  const [error, setError] = useState(null);
+  const onSubmit = async (values) => {
+    const { name, number, email, password } = values;
+
+    const userData = {
+      name,
+      number,
+      email,
+      password,
+    };
+    try {
+      const { data } = await signupUser(userData);
+      console.log(data);
+    } catch (error) {
+      if (error.response && error.response.data.message) {
+        setError(error.response.data.message);
+      }
+      console.log(error.response);
+    }
+  };
 
   const formik = useFormik({
     initialValues,
@@ -49,10 +65,6 @@ const SignupForm = () => {
     validationSchema,
     validateOnMount: true,
   });
-
-  const handleClick = () => {
-    setsignUp(true);
-  };
 
   return (
     <div className="formContainer">
@@ -74,17 +86,17 @@ const SignupForm = () => {
         />
 
         <button
-          onClick={handleClick}
           className={formik.isValid ? "button" : "button disabled"}
           type="submit"
         >
           ثبت‌نام
         </button>
-        {signUp && formik.isValid && (
-          <div className="success">تبریک! ثبت‌نام با موفقیت انجام شد.</div>
-        )}
+        {error && <p style={{ color: "red" }}>{error}</p>}
         <p className="push-paragraph">
-        قبلا ثبت‌نام کرده‌اید؟ <Link className="link" to="/login">وارد شوید!</Link>
+          قبلا ثبت‌نام کرده‌اید؟{" "}
+          <Link className="link" to="/login">
+            وارد شوید!
+          </Link>
         </p>
       </form>
     </div>
