@@ -57,6 +57,7 @@ const SignupForm = () => {
         setError(error.response.data.message);
       }
       console.log(error.response.data.message);
+      console.log("salam haji update shod ro netylify")
     }
   };
 
