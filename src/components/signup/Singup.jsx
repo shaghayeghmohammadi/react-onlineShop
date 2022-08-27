@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import "./signup.css";
 import { Link } from "react-router-dom";
-import { signupUser } from "../../services/signupUserUser";
+import { signupUser } from "../../services/signupUser";
 import { useState } from "react";
 
 const initialValues = {
