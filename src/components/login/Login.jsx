@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import "./login.css";
 import { Link } from "react-router-dom";
-import { loginUser } from "../../services/loginuser";
+import { loginUser } from "../../services/loginUser";
 import { useState } from "react";
 
 const validationSchema = yup.object({
