@@ -5,6 +5,7 @@ import "./login.css";
 import { Link } from "react-router-dom";
 import { loginUser } from "../../services/loginUser";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const validationSchema = yup.object({
   email: yup.string().email("ایمیل نامعتبر").required("ایمیل ضروری است."),
@@ -19,11 +20,12 @@ const initialValues = {
 const LoginForm = () => {
   const [error, setError] = useState(null);
 
+  const history = useNavigate();
   const onSubmit = async (values) => {
     try {
       const { data } = await loginUser(values);
       console.log(data);
-      setError(null);
+      history('/');
     } catch (error) {
       if (error.response && error.response.data.message) {
         setError(error.response.data.message);
