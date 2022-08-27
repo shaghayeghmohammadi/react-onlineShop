@@ -52,12 +52,13 @@ const SignupForm = () => {
     try {
       const { data } = await signupUser(userData);
       console.log(data);
+      setError(null);
     } catch (error) {
       if (error.response && error.response.data.message) {
         setError(error.response.data.message);
       }
       console.log(error.response.data.message);
-      console.log("salam haji update shod ro netylify")
+      console.log("salam haji update shod ro netylify");
     }
   };
 
