@@ -3,14 +3,14 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import "./signup.css";
 import { Link } from "react-router-dom";
-import { signupUser } from "../../services/signup";
+import { signupUser } from "../../services/signupUserUser";
 import { useState } from "react";
 
 const initialValues = {
   name: "",
   email: "",
   password: "",
-  number: "",
+  phoneNumber: "",
   passwordConfirmation: "",
 };
 
@@ -20,7 +20,7 @@ const validationSchema = yup.object({
     .required("نام و نام‌خانوادگی خود را بنویسید!")
     .min(6, "اسم و فامیل حداقل 6 کاراکتر باشد"),
   email: yup.string().email("ایمیل نامعتبر").required("ایمیل ضروری است."),
-  number: yup
+  phoneNumber: yup
     .string()
     .required("شماره خود را وارد کنید")
     .matches(/^[0-9]{11}$/, "شماره نامعتبر"),
@@ -39,12 +39,13 @@ const validationSchema = yup.object({
 
 const SignupForm = () => {
   const [error, setError] = useState(null);
+
   const onSubmit = async (values) => {
-    const { name, number, email, password } = values;
+    const { phoneNumber, name, email, password } = values;
 
     const userData = {
+      phoneNumber,
       name,
-      number,
       email,
       password,
     };
@@ -55,7 +56,7 @@ const SignupForm = () => {
       if (error.response && error.response.data.message) {
         setError(error.response.data.message);
       }
-      console.log(error.response);
+      console.log(error.response.data.message);
     }
   };
 
@@ -71,7 +72,12 @@ const SignupForm = () => {
       <form onSubmit={formik.handleSubmit}>
         <Inputs formik={formik} name="name" label="نام و نام‌خانوادگی" />
         <Inputs formik={formik} name="email" label="ایمیل" />
-        <Inputs formik={formik} name="number" label="شماره تماس" type="tel" />
+        <Inputs
+          formik={formik}
+          name="phoneNumber"
+          label="شماره تماس"
+          type="tel"
+        />
         <Inputs
           formik={formik}
           name="password"
@@ -93,7 +99,7 @@ const SignupForm = () => {
         </button>
         {error && <p style={{ color: "red" }}>{error}</p>}
         <p className="push-paragraph">
-          قبلا ثبت‌نام کرده‌اید؟{" "}
+          قبلا ثبت‌نام کرده‌اید؟
           <Link className="link" to="/login">
             وارد شوید!
           </Link>
