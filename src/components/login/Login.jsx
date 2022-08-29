@@ -5,7 +5,8 @@ import "./login.css";
 import { Link } from "react-router-dom";
 import { loginUser } from "../../services/loginUser";
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { useAuthActions } from "../../Providers/AuthProvider";
 
 const validationSchema = yup.object({
   email: yup.string().email("ایمیل نامعتبر").required("ایمیل ضروری است."),
@@ -21,11 +22,17 @@ const LoginForm = () => {
   const [error, setError] = useState(null);
 
   const history = useNavigate();
+
+  // for Auth and persist user in App
+  const setAuth = useAuthActions();
+
   const onSubmit = async (values) => {
     try {
       const { data } = await loginUser(values);
-      console.log(data);
-      history('/');
+      setAuth(data);
+      localStorage.setItem("authState", JSON.stringify(data));
+      setError(null);
+      history("/");
     } catch (error) {
       if (error.response && error.response.data.message) {
         setError(error.response.data.message);
