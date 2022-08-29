@@ -1,15 +1,15 @@
 import { useContext, createContext, useState } from "react";
 
-export const AuthProviderContext = createContext();
-export const AuthProviderContextDispatcher = createContext();
+const AuthProviderContext = createContext();
+const AuthProviderContextDispatcher = createContext();
 
-const AuthProvider = ({ childern }) => {
+const AuthProvider = ({ children }) => {
   const [state, setState] = useState(false);
 
   return (
     <AuthProviderContext.Provider value={state}>
       <AuthProviderContextDispatcher.Provider value={setState}>
-        {childern}
+        {children}
       </AuthProviderContextDispatcher.Provider>
     </AuthProviderContext.Provider>
   );
