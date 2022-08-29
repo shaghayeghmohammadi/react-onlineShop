@@ -85,7 +85,7 @@ const Navigation = () => {
             </li>
             <li className="loginPageNav">
               <NavLink
-                to="/login"
+                to={userData ? "/profile" : "/login"}
                 className={(Navbutton) =>
                   Navbutton.isActive ? "activeLink" : ""
                 }
