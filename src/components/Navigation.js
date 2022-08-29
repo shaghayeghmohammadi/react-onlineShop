@@ -5,6 +5,7 @@ import { FaBars, FaTimes, FaShoppingBasket, FaUser } from "react-icons/fa";
 import { useRef } from "react";
 
 import "./navigation.css";
+import { useAuth } from "../Providers/AuthProvider";
 
 const Navigation = () => {
   const { cart } = useCart();
@@ -15,6 +16,8 @@ const Navigation = () => {
   const showNav = () => {
     navRef.current.classList.toggle("active");
   };
+
+  const userData = useAuth();
 
   return (
     <>
@@ -88,7 +91,7 @@ const Navigation = () => {
                 }
               >
                 <FaUser className="userIcon" />
-                <p>ورود</p>
+                {userData ? `خوش آمدی ${userData.name}` : <p>ورود</p>}
               </NavLink>
             </li>
           </ul>
