@@ -4,9 +4,10 @@ import * as yup from "yup";
 import "./login.css";
 import { Link } from "react-router-dom";
 import { loginUser } from "../../services/loginUser";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuthActions } from "../../Providers/AuthProvider";
+import { useAuth, useAuthActions } from "../../Providers/AuthProvider";
+import { useQuery } from "../../hooks/useQuery";
 
 const validationSchema = yup.object({
   email: yup.string().email("ایمیل نامعتبر").required("ایمیل ضروری است."),
@@ -23,16 +24,26 @@ const LoginForm = () => {
 
   const history = useNavigate();
 
-  // for Auth and persist user in App
+  // for query
+  const query = useQuery();
+  const redirect = query.get("redirect") || "/";
+
+  // user auth
+  const auth = useAuth();
+  //AuthActions and persist user in App
   const setAuth = useAuthActions();
 
+  useEffect(() => {
+    if (auth) history(redirect);
+  }, [redirect, auth]);
+  
   const onSubmit = async (values) => {
     try {
       const { data } = await loginUser(values);
       setAuth(data);
       // localStorage.setItem("authState", JSON.stringify(data));
       setError(null);
-      history("/");
+      history(redirect);
     } catch (error) {
       if (error.response && error.response.data.message) {
         setError(error.response.data.message);
@@ -69,9 +80,8 @@ const LoginForm = () => {
         {error && <p style={{ color: "red" }}>{error}</p>}
         <p className="push-paragraph">
           هنوز ثبت‌نام نکرده‌اید؟
-          <Link className="link" to="/signup">
-            {" "}
-            همین حالا ثبت‌نام کنید.{" "}
+          <Link className="link" to={`/signup?redirect=${redirect}`}>
+            همین حالا ثبت‌نام کنید.
           </Link>
         </p>
       </form>

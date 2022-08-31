@@ -85,7 +85,7 @@ const CartSummary = ({ total, cart }) => {
         <p>جمع کل سبد خرید:</p>
         <p>{total} تومان</p>
       </div>
-      <Link to="/checkout">
+      <Link to="/signup?redirect=checkout">
         <button className="btn primary" style={{ marginTop: "30px" }}>
           ادامه سفارش
         </button>
