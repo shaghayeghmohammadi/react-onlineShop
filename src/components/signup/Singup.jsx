@@ -57,6 +57,7 @@ const SignupForm = () => {
 
   useEffect(() => {
     if (auth) history(redirect);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [redirect, auth]);
   
   const onSubmit = async (values) => {
