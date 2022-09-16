@@ -86,6 +86,7 @@ body {
 @media only screen and (max-width: 600px) {
   .productList {
     margin-bottom: 100px;
+    width: 75vw;
   }
   .productImage img {
     width: 260px;

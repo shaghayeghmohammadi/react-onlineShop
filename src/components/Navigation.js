@@ -1,7 +1,13 @@
 import { NavLink, Link } from "react-router-dom";
 import { useCart } from "../Providers/CartProvider";
-// import MobileNav from "./mobileNav/MobileNav";
-import { FaBars, FaTimes, FaShoppingBasket, FaUser } from "react-icons/fa";
+import MyLogo from "../assets/images/logo.png";
+import {
+  BiMenuAltRight,
+  BiX,
+  BiCartAlt,
+  BiLogIn,
+  BiUser,
+} from "react-icons/bi";
 import { useRef } from "react";
 
 import "./navigation.css";
@@ -24,15 +30,17 @@ const Navigation = () => {
       <header className="mainNavigation">
         <div className="logo">
           <button className="nav-btn" onClick={showNav}>
-            <FaBars className="react-icon" />
+            <BiMenuAltRight className="menu" />
           </button>
-          <Link to="/">ShoeLand</Link>
+          <Link to="/">
+            <img className="my-logo" src={MyLogo} alt="logo" />
+          </Link>
         </div>
 
         <nav>
           <ul ref={navRef} className="insideMobileNav">
             <button className="nav-btn close" onClick={showNav}>
-              <FaTimes className="react-icon" />
+              <BiX className="react-icon" />
             </button>
 
             <li className="mainPageLi">
@@ -80,7 +88,7 @@ const Navigation = () => {
                 }
               >
                 <span className="cartNumber">{cart.length}</span>
-                <FaShoppingBasket className="basketIcon" />
+                <BiCartAlt className="basketIcon" />
               </NavLink>
             </li>
             <li className="loginPageNav">
@@ -90,8 +98,8 @@ const Navigation = () => {
                   Navbutton.isActive ? "activeLink" : ""
                 }
               >
-                <FaUser className="userIcon" />
-                {userData ? `خوش آمدی ${userData.name}` : <p>ورود</p>}
+                <BiLogIn className="userIcon" />
+                {userData ? <BiUser /> : <p>ورود</p>}
               </NavLink>
             </li>
           </ul>

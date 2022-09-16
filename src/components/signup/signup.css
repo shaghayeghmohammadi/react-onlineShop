@@ -89,27 +89,22 @@ input:-webkit-autofill:active {
   font-size: 1.1rem;
   color: red;
 }
-.success {
-  text-align: center;
-  color: rgb(0, 179, 0);
-  margin-top: 30px;
-  font-size: 1.3rem;
-}
 
 .link {
   color: #004e92;
 }
-.push-paragraph {
+/* .push-paragraph {
   margin-right: 10px;
   font-size: 1.1rem;
   font-family: kalameh-bold;
-}
+} */
 
 @media only screen and (max-width: 600px) {
   .formContainer {
     /* padding: 20px; */
+    margin: 35px 0;
     border: none;
-    margin-bottom: 30px;
+    margin-bottom: -10px;
     width: 285px;
   }
   input[type="text"],
